@@ -1,0 +1,106 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+   <div class="col-md-12">
+      <div class="body-text">
+         <div class="title">
+            {{a.name}}
+         </div>
+         <div class="body-text">
+            My Skill:   {{a.skill}}
+         </div>
+         <div class="body-text">
+            {%for cat in c%}
+            {%if cat.id == a.category%}
+            Category:   {{cat.name}}
+            {%endif%}
+            {%endfor%}
+         </div>
+         <div class="preview-text">
+            {{a.bio}}
+         </div>
+      </div>
+      <hr>
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-6">
+      <div class="title">
+         My Portfolios
+      </div>
+      {%if user_id == a.user%}
+      <a href="/create/portfolio?art_id={{a.id}}">Create Portfolio</a>
+      {%endif%}
+      <br>{{no_port}}
+      {%for portfolio in p%}
+      <div class="body-text">
+         <div class="sub-title">
+            {{portfolio.title}}
+         </div>
+         <div class="body-text">
+            {{portfolio.details}}
+         </div>
+      </div>
+      {%if user_id == a.user%}
+      <a href ="/edit/portfolio/{{portfolio.id}}?art_id={{a.id}}">Edit | </a>
+      <a href ="/delete/portfolio/{{portfolio.id}}?art_id={{a.id}}">| Delete </a>
+      {%endif%}
+      <hr>
+      {%endfor%}
+   </div>
+   <div class="col-md-6">
+      <div class="title">
+         Endorsement for My Work
+      </div>
+      {%if user_id and user_id != a.user%}
+      <a href="/create/endorsement?art_id={{a.id}}">Endorse {{a.name}}</a>
+      {%endif%}
+      <br>{{no_end}}
+      {%for endorsement in e%}
+      <div class="body-text">
+         <div class="sub-title">
+            {{endorsement.title}}
+         </div>
+         <div class="body-text">
+            {{endorsement.details}}
+         </div>
+      </div>
+      {%if user_id ==  endorsement.user%}
+      <a href ="/edit/endorsement/{{endorsement.id}}?art_id={{a.id}}">Edit | </a>
+      <a href ="/delete/endorsement/{{endorsement.id}}?art_id={{a.id}}">| Delete </a>
+      {%endif%}
+      <hr>
+      {%endfor%}
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-6">
+      <div class="title">
+         My Addresses
+      </div>
+      {%if user_id == a.user%}
+      <a href="/create/address?art_id={{a.id}}">Create Address</a>
+      {%endif%}
+      <br>
+      {{no_add}}
+      {%for address in add%}
+      <div class="body-text">
+         <div class="body-text">
+            {{address.email}}
+         </div>
+         <div class="body-text">
+            {{address.telephone}}
+         </div>
+         <div class="body-text">
+            {{address.kwetu_address}}
+         </div>
+      </div>
+      {%if user_id == address.user%}
+      <a href ="/edit/address/{{address.id}}?art_id={{a.id}}">Edit | </a>
+      <a href ="/delete/address/{{address.id}}?art_id={{a.id}}">| Delete </a>
+      {%endif%}
+      <hr>
+      {%endfor%}
+   </div>
+</div>
+{%endblock%}

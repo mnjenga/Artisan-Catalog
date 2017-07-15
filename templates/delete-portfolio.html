@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+  <div class="col-md-12">
+	<div class="delete-post">
+	Confirm Delete this Portfolio
+	</div>
+	<form  method="post">
+	  <label>
+	  <input type="submit" name="delete" value="Delete" />
+	  </label>
+	</form>
+	(<a href =/show/artisan/{{p.artisan}}>Cancel</a>)
+	<div class="blog-post">
+	  <div class="title">
+		{{p.title}}
+	  </div>
+	  <div class="created">
+		{{p.details}}
+	  </div>
+	</div>
+  </div>
+</div>
+{%endblock%}

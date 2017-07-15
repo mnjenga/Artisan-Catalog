@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <title>Fix-it Catalog</title>
+	  <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.css" />
+	  <link type="text/css" rel="stylesheet" href="/static/css/style.css" />
+	  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+   </head>
+   <body>
+	  <div class="container">
+		 <div class="row">
+			<header>
+			   <div class="col-md-6">
+				  <a href="/"><img class="logo img-responsive" src="/static/images/logo.svg" alt="My Startup logo in SVG"></a>
+			   </div>
+			   <div class="col-md-6 text-right text-uppercase">
+				  <h1 class="top-tittle" >Fix-it Catalog</h1>
+				  <h3 class="title-tagline"><a href="/">Home </a>
+					 {%if 'username' not in session %}
+					 <a href="/login">| Log In </a>
+					 {% else %}
+					 <a href="/logout">| Log Out  </a><a href="/main">| Add Artisan</a>
+					 {% endif %}
+				  </h3>
+			   </div>
+			</header>
+		 </div>
+		 <div class="row">
+			<div class="col-md-12">
+			   <hr class="top-line">
+			</div>
+			<div class="col-md-12">
+			   {% with messages = get_flashed_messages() %}
+			   {% if messages %}
+			   <ul>
+				  {% for message in messages %}
+				  <mark>{{message}} </mark>
+				  {% endfor %}
+			   </ul>
+			   {% endif %}
+			   {% endwith %}
+			</div>
+		 </div>
+		 {%block content%}
+		 {%endblock%}
+		 <div class="row">
+			<div class="col-md-12">
+			   <hr class="top-line">
+			</div>
+		 </div>
+	  </div>
+   </body>
+</html>

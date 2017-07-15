@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+   <div class="col-md-12">
+      <div class="title">
+         Artisan Categories
+      </div>
+      {%if user_id%}
+      <a href="/create/category">Create Category</a>
+      {%endif%}
+      <br>{{no_cats}}
+      <hr>
+   </div>
+</div>
+<div class="row">
+   {%for c in categories%}
+   <div class="col-md-4">
+      <div class="sub-title">
+         <a href ="/show/category/{{c.id}}">{{c.name}}</a>
+      </div>
+      {%if user_id == c.user%}
+      <a href ="/edit/category/{{c.id}}">Edit | </a>
+      <a href ="/delete/category/{{c.id}}">| Delete </a>
+      {%endif%}<br>
+      <hr>
+   </div>
+   {% endfor %}
+</div>
+{%endblock%}

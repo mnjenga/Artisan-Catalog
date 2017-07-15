@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+  <div class="col-md-12">
+   <a href="/create/portfolio">Create Portfolio</a>
+    {%for portfolio in portfolios%}
+    <div class="body-text">
+      <div class="title">
+        {{portfolio.title}}
+      </div>
+      <div class="created">
+        {{portfolio.details}}
+      </div>
+    </div>
+    <a href ="/edit/portfolio/{{portfolio.id}}">Edit this Portfolio </a>
+    <a href ="/delete/portfolio/{{portfolio.id}}">Delete this Portfolio </a>
+    <hr>
+    {%endfor%}
+  </div>
+</div>
+{%endblock%}

@@ -1,0 +1,51 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+   <div class="col-md-12">
+	  <div class="title">
+		 {%for cat in c%}
+		 {%if cat_id == cat.id%}
+		 {{cat.name}}
+		 {%endif%}
+		 {%endfor%}
+	  </div>
+	  {% if user_id%}
+	  <a href="/create/artisan?cat_id={{cat_id}}">Create Artisan</a>
+	  {%endif%}
+	  <br>{{no_art}}
+   </div>
+</div>
+<div class="row">
+   {%for artisan in artisans%}
+   {%if cat_id == artisan.category%}
+   <div class="col-md-4">
+	  <div class="body-text">
+		 <div class="title">
+			<a href ="/show/artisan/{{artisan.id}}">{{artisan.name}}</a>
+		 </div>
+		 {% if user_id == artisan.user%}
+		 <a href ="/edit/artisan/{{artisan.id}}?cat_id={{cat_id}}">Edit | </a>
+		 <a href ="/delete/artisan/{{artisan.id}}?cat_id={{cat_id}}">| Delete </a>
+		 {%endif%}
+		 <br>
+		 <div class="created">
+			{{artisan.skill}}
+		 </div>
+		 <div class="created">
+			{%for cat in c%}
+			{%if cat.id == artisan.category%}
+			{{cat.name}}
+			{%endif%}
+			{%endfor%}
+		 </div>
+		 <div class="preview-text">
+			{{artisan.bio[0:40]}} ...
+		 </div>
+		 <a href ="/show/artisan/{{artisan.id}}">See More </a>
+	  </div>
+	  <hr>
+   </div>
+   {%endif%}
+   {%endfor%}
+</div>
+{%endblock%}

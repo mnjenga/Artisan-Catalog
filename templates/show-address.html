@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+  <div class="col-md-12">
+   <a href="/create/address">Create Address</a>
+    {%for address in addresses%}
+    <div class="body-text">
+      <div class="created">
+        {{address.email}}
+      </div>
+      <div class="created">
+        {{address.telephone}}
+      </div>
+      <div class="created">
+        {{address.kwetu_address}}
+      </div>
+      <div class="created">
+        {{address.artisan}}
+      </div>
+    </div>
+    <a href ="/edit/address/{{address.id}}">Edit this Address </a>
+    <a href ="/delete/address/{{address.id}}">Delete this Address </a>
+    <hr>
+    {%endfor%}
+  </div>
+</div>
+{%endblock%}

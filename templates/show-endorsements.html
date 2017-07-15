@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+  <div class="col-md-12">
+   <a href="/create/endorsement">Endorse an Artisan</a>
+    {%for endorsement in my_endorsements%}
+    <div class="body-text">
+      <div class="title">
+        {{endorsement.title}}
+      </div>
+      <div class="created">
+        {{endorsement.details}}
+      </div>
+    </div>
+    <a href ="/edit/endorsement/{{endorsement.id}}">Edit this Endorsement </a>
+    <a href ="/delete/endorsement/{{endorsement.id}}">Delete this Endorsement </a>
+    <hr>
+    {%endfor%}
+  </div>
+</div>
+{%endblock%}

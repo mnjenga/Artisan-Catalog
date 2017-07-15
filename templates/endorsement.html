@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="row">
+  <div class="col-md-8">
+    {% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.title) }}
+    {{ render_field(form.details) }}
+	{{form.hidden_tag()}}
+  </dl>
+  <p><input type=submit value=Update>
+</form>
+    (<a href =/show/artisan/{{art_id}}>Cancel</a>)
+  </div>
+</div>
+{%endblock%}

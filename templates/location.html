@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%block content%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<div class="row">
+  <div class="col-md-2">
+    <form action="">
+      <select data-bind="value: catId">
+        <option value="">Select Category</option>
+        {% for c in cat %}
+        <option value={{c.id}}>{{c.name}}</option>
+        {% endfor %}
+      </select>
+    </form>
+    <div class= "experts">
+      <h4>Experts Near You</h4>
+      <div data-bind = "foreach: markers" >
+        <p class= "exp" data-bind = "text: title, click: showWindow"></p>
+      </div>
+    </div>
+    <div class= "tips">
+      <h4>DIY Tips</h4>
+      <p>Source: New York Times</p>
+      <div data-bind = "foreach: categoryTips" >
+        <p class= "exp" data-bind = "html: $data"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10">
+    </style>
+    <div class= "map" id="map"></div>
+  </div>
+</div>
+
+{% block javascript %}
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+{% endblock %}
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMh10KZg5qX2A-NSJreX9IakfvvYznCsM&callback=initMap">
+</script>
+
+
+{%endblock%}
