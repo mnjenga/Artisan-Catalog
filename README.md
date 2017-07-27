@@ -1,5 +1,4 @@
-Neighbourhood Map
-
+#Item Catalog
 This  is a map that displays technicians and artisans in Nairobi, Kenya with a their skill, Bio and a link to more details on the info display on clicking the marker.
 
 The side bar displays a list of all the artisans and technicians and you can use the drop down on the top to filter to a specific category. Once you filter, icons on the map are filtered accordingly, and a search is on on the New York Times of articles that can help with the chosen category
@@ -11,18 +10,18 @@ Further, the project utilises google maps api, and content from The New York Tim
 Note: I have created all my projects incrementally and this is an upgrade to the item catalog by adding location capabilities to it. Below are installation instructions to run the project
 
 
-Installation
+#Installation
 
 The project is written in python, using flask framework, sqlalchemy ORM, and sqlite database, while the front end uses Knockout js Library and google maps api
 
-Prerequisites
+#Prerequisites
 
 1) The application uses Linux-based virtual machine (VM)
 2) Python 2.7 and above
 3) sqlite database
 4) The modules sqlalchemy, requests, oauth2client, wtforms and flask should be installed
 
-Installing and running
+#Installing and running
 
 1) Download the catalog.zip file
 
@@ -37,7 +36,7 @@ Installing and running
 6) Visit http://localhost:5000/ in your web browser to view the app.
 
 
-API Reference
+#API Reference
 
 The application has 3 JSON api end points that supply the same information available on the website version.
 
@@ -48,7 +47,7 @@ The application has 3 JSON api end points that supply the same information avail
 3) http://localhost:5000/api/v1/show/one_artisan/<int:art_id> artisan with the id cat_id with all the associated details
 
 
-Authors
+#Authors
 
 Moses Njenga
 
