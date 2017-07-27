@@ -1,4 +1,4 @@
-#Item Catalog
+#Item Catalog  
 This  is a map that displays technicians and artisans in Nairobi, Kenya with a their skill, Bio and a link to more details on the info display on clicking the marker.
 
 The side bar displays a list of all the artisans and technicians and you can use the drop down on the top to filter to a specific category. Once you filter, icons on the map are filtered accordingly, and a search is on on the New York Times of articles that can help with the chosen category
